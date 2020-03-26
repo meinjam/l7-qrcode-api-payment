@@ -36,8 +36,8 @@
 
 <!-- Qrcode Path Field -->
 <div class="form-group">
-    {!! Form::label('qrcode_path', 'Qrcode Path:') !!}
-    <p>{{ $qrcode->qrcode_path }}</p>
+    {!! Form::label('qrcode_path', 'Qrcode:') !!}
+    <p><img src="{{ asset($qrcode->qrcode_path) }}" alt=""></p>
 </div>
 
 <!-- Amount Field -->

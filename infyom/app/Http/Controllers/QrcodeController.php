@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateQrcodeRequest;
-use App\Http\Requests\UpdateQrcodeRequest;
-use App\Repositories\QrcodeRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use LaravelQRCode\Facades\QRCode;
+use App\Repositories\QrcodeRepository;
+use App\Http\Requests\CreateQrcodeRequest;
+use App\Http\Requests\UpdateQrcodeRequest;
+use App\Http\Controllers\AppBaseController;
 
 class QrcodeController extends AppBaseController
 {
@@ -55,11 +57,16 @@ class QrcodeController extends AppBaseController
     public function store(CreateQrcodeRequest $request)
     {
         $input = $request->all();
-
+        
+        $file = 'generated_qrcodes/' . time() . Str::random(40) . '.png';
+        $newQrcode = QRCode::text("message")
+        ->setSize(8)
+        ->setMargin(2)
+        ->setOutfile($file)
+        ->png();
+        $input['qrcode_path'] = $file;
         $qrcode = $this->qrcodeRepository->create($input);
-
         Flash::success('Qrcode saved successfully.');
-
         return redirect(route('qrcodes.index'));
     }
 

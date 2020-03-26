@@ -34,8 +34,8 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="#" class="logo">
-                <b>InfyOm</b>
+            <a href="{{ url('/home') }}" class="logo">
+                <b>Meinjam</b>
             </a>
 
             <!-- Header Navbar -->
