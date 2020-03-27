@@ -1,5 +1,8 @@
 <div class="col-md-12">
     <a href="{{ route('qrcodes.index') }}" class="btn btn-default">Back</a>
+    @if ($qrcode->user_id == Auth::user()->id || Auth::user()->role_id < 3)
+        <a href="{{ route('qrcodes.edit', [$qrcode->id]) }}" class='btn btn-primary'>Edit</a>
+    @endif
 </div>
 <div class="col-md-6">
     <!-- Product Name Field -->

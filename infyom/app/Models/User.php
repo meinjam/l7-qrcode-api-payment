@@ -67,5 +67,13 @@ class User extends Model
         'password' => 'required'
     ];
 
-    
+    public function transactions()
+    {
+        return $this->hasMany('App\Models\Transaction');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role', 'role_id');
+    }
 }
