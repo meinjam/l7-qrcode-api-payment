@@ -7,11 +7,11 @@
         </h1>
     </section>
     <div class="content">
+        @include('flash::message')
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('qrcodes.show_fields')
-                    <a href="{{ route('qrcodes.index') }}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>
