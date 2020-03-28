@@ -35,7 +35,7 @@
 
             <!-- Logo -->
             <a href="{{ url('/home') }}" class="logo">
-                <b>Meinjam</b>
+                <b>QRCode Generator</b>
             </a>
 
             <!-- Header Navbar -->
@@ -70,7 +70,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/users/{{ Auth::user()->id }}" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
@@ -98,7 +98,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
+            <strong>Copyright © 2020 <a href="#">QRCode Generator</a>.</strong> All rights reserved.
         </footer>
 
     </div>

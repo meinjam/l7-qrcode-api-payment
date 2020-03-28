@@ -76,4 +76,9 @@ class User extends Model
     {
         return $this->belongsTo('App\Models\Role', 'role_id');
     }
+
+    public function qrcodes()
+    {
+        return $this->hasMany('App\Models\Qrcode');
+    }
 }
